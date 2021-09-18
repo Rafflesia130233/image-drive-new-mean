@@ -37,7 +37,7 @@ app.use('/', express.static(path.join(__dirname, 'dist/image-drive-app')));
 app.use('/public', express.static('public'));
 app.use('/api', employeeRoute)
 app.use('/products', productRoute)
-app.use('/order', orderRoute)
+app.use('/orders', orderRoute)
 app.use('/customer', customerRoute)
 app.use('/file-upload', artistRoute)
 app.use('/users', userRoute);

@@ -28,6 +28,7 @@ import { AuthModule } from './auth/auth.module';
 import { ProductDetailComponent } from './shop-product/product-detail/product-detail.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { OrderListComponent } from './shop-product/order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     ProductListComponent,
     ProductDetailComponent,
     AboutusComponent,
-    FooterComponent
+    FooterComponent,
+    OrderListComponent
   ],
   entryComponents: [NgbdModalContent],
   imports: [

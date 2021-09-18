@@ -18,7 +18,7 @@ orderRoute.route('/create').post((req, res, next) => {
 
 // Get All Orders
 orderRoute.route('/').get(async (req, res) => {
-  let orders = await Order.find().populate('customerId').populate('productId').catch(err => {
+  let orders = await Order.find().populate('userId').populate('productId').catch(err => {
     console.log(err);
   });
   console.log(orders);

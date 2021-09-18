@@ -10,6 +10,7 @@ import { ProductListComponent } from './shop-product/product-list/product-list.c
 import { ProductCreateComponent } from './shop-product/product-create/product-create.component';
 import { ProductEditComponent } from './shop-product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './shop-product/product-detail/product-detail.component';
+import { OrderListComponent } from './shop-product/order-list/order-list.component';
 
 import { AuthGuard } from './auth/auth.guard';
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'create-artist',          component: CreateArtistComponent },
   { path: 'list-artist', component: ListArtistComponent },
   { path: 'list-product', component: ProductListComponent },
+  { path: 'list-order', component: OrderListComponent },
   { path: 'list-product/:id', component: ProductDetailComponent },
   { path: 'create-product',          component: ProductCreateComponent },
   { path: 'img-shop-products',             component: ImgShopProductsComponent },

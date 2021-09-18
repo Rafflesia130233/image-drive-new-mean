@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 // Define collection and schema
 let Order = new Schema({
-   customerId: {
+   userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Customer'
+      ref: 'User'
    },
    productId : {
     type: mongoose.Schema.Types.ObjectId,

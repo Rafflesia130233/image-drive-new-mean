@@ -65,5 +65,17 @@ export class HomeComponent implements OnInit {
     }
 
   }
+  buyProduct(product, i) {
+    const orderObj = {
+      customerId: '5eb86855f3bd49a4172b2a1c',
+      productId: product._id,
+    };
+    this.fileUploadService.createOrder(orderObj).subscribe((res) => {
+      console.log('Employee successfully created!');
+      alert('Order successfully placed');
+    }, (error) => {
+      console.log(error);
+    });
+  }
 
 }

@@ -14,6 +14,7 @@ export class FileUploadService {
   baseURL = "http://localhost:4000/";
   artistUri="http://localhost:4000/file-upload"
   ProductUri="http://localhost:4000/products"
+  orderUri="http://localhost:4000/orders"
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
  // ProductsAll: any = [];
@@ -29,6 +30,9 @@ export class FileUploadService {
   }
   getProductById(id: String) {
     return this.http.get<Product>(this.ProductUri +'/'+ id);
+  }
+  getOrders(){
+    return this.http.get(`${this.orderUri}`);
   }
 
 
@@ -59,6 +63,22 @@ export class FileUploadService {
       observe: 'events'
     })
   }
+
+  createOrder(data): Observable<any> {
+    let url = `${this.orderUri}/create`;
+    return this.http.post(url, data)
+      .pipe(
+        catchError(this.errorMgmt)
+      )
+  }
+
+  updateOrder(id, data): Observable<any> {
+    let url = `${this.orderUri}/update/${id}`;
+    return this.http.put(url, data, { headers: this.headers }).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
 
    // Delete Artist
    deleteArtist(id): Observable<any> {

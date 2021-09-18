@@ -1,0 +1,124 @@
+<div class="page-header" filter-color="orange">
+  <div class="page-header-image" style="background-image:url(assets/img/regist.jpg)"></div>
+    <div class="container">
+        <div class="col-md-4 content-center">
+          <div class="card card-login card-plain">
+            <h1 class="page-title">User Registration</h1>
+            <form class="form" #registerForm="ngForm">
+              <div class="header header-primary text-center">
+                <div class="logo-container">
+                    <img src="assets/img/pp.ico" alt="">
+                </div>
+            </div>
+              <div class="form-group">
+                <div *ngIf="errors.length > 0" class="alert alert-danger">
+                <ul *ngFor = "let error of errors">
+                    <li>{{ error }}</li>
+                </ul>
+                </div>
+                <label for="username">Username</label>
+              <input type="text"
+                      class="form-control"
+                      [(ngModel)] = "formData.username"
+                      name="username"
+                      #username = "ngModel"
+                      required>
+              </div>
+              <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                class="alert alert-danger">
+                <div *ngIf="username?.errors?.required">
+                  Username is required
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email"
+                      class="form-control"
+                      [(ngModel)] = "formData.email"
+                      name="email"
+                      #email = "ngModel"
+                      required>
+              </div>
+              <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="alert alert-danger">
+                <div *ngIf="email?.errors?.required">
+                  Email is required
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"
+                      class="form-control"
+                      [(ngModel)] = "formData.password"
+                      #password = "ngModel"
+                      name="password"
+                      required>
+              </div>
+              <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="alert alert-danger">
+                <div *ngIf="password?.errors?.required">
+                  Password is required
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="passwordConfirmation">Confirm Password</label>
+                <input type="password"
+                      class="form-control"
+                      [(ngModel)] = "formData.passwordConfirmation"
+                      #passwordConfirmation = "ngModel"
+                      name="passwordConfirmation"
+                      required>
+              </div>
+              <div *ngIf="passwordConfirmation.invalid && (passwordConfirmation.dirty || passwordConfirmation.touched)"
+                class="alert alert-danger">
+                <div *ngIf="passwordConfirmation?.errors?.required">
+                  Confirm Password is required
+                </div>
+              </div>
+              <button
+              (click) = "register()"
+              type="submit"
+              class="btn btn-warning"
+              [disabled] = "!registerForm.form.valid">Register</button>
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <nav>
+          <ul>
+              <li>
+                  <a href="www.linkedin.com/in/rafflesia-khan-164b0781">
+                      Rafflesia Khan
+                  </a>
+              </li>
+              <li>
+                  <a href="/aboutus">
+                      About Us
+                  </a>
+              </li>
+              <li>
+                  <a href="https://rafflesia130233.github.io/rk-phd-blog/">
+                      Bolg
+                  </a>
+              </li>
+              <li>
+                  <a href="https://www.creative-tim.com">
+                      Style Sheets from Creative Tim
+                  </a>
+              </li>
+          </ul>
+      </nav>
+      <div class="copyright">
+          &copy;
+        {{data | date: 'yyyy'}}, Welcome to
+          <a href="https://www.invisionapp.com" target="_blank">Image Drive</a>
+      </div>
+  </div>
+</footer>

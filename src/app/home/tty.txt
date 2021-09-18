@@ -1,0 +1,108 @@
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FileUploadService } from "../service/file-upload.service";
+
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent implements OnInit {
+
+  data : Date = new Date();
+  notify: string;
+  Products: any = [];
+  filterredImages;
+  galleryFilter = 'all';
+  CategoryProduct: any = ['Drawing', 'Engraving', 'Iconography', 'Painting', 'Sculpture']
+  constructor(private router: Router, private route: ActivatedRoute, public fileUploadService: FileUploadService) {
+    this.getProducts();
+  }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      const key1 = 'loggedin';
+      if (params[key1] === 'success') {
+        //this.notify = 'You have been successfully loggedin. Welcome home';
+      }
+    });
+    var body = document.getElementsByTagName('body')[0];
+    body.classList.add('home-page');
+    var navbar = document.getElementsByTagName('nav')[0];
+    navbar.classList.add('navbar-transparent');
+  }
+
+  activeCategory(category) {
+    this.fileUploadService.getProducts().subscribe((res) => {
+      this.Products = res['products'];
+    })
+    this.galleryFilter = this.CategoryProduct;
+    if (this.galleryFilter === 'all') {
+      this.filterredImages = this.Products;
+    } else {
+      this.filterredImages = this.Products.filter(x => x.category === this.galleryFilter);
+    }
+  }
+  getProducts() {
+    this.fileUploadService.getProducts().subscribe((res) => {
+      this.Products = res['products'];
+    })
+  }
+
+}
+
+
+    <select class="form-select" style="width: 250px; margin-bottom: 30px;" aria-label="Default select example" (change)="onSelect($event.target)">
+      <option value="">Select Category</option>
+      <option value="New York">Painting</option>
+      <option value="Florida">Sculpture</option>
+    </select>
+
+<head>
+  <script src="../../assets/css/landing/bootstrap.min.css"></script>
+  <script src="../../assets/css/landing/animate.css"></script>
+  <script src="../../assets/css/landing/style.css"></script>
+  <script src="../../assets/css/landing/flatpicker.css"></script>
+  <script src="../../assets/css/landing/flatpickr.min.css"></script>
+  <script src="../../assets/css/landing/materialdesignicons.min.css"></script>
+</head>
+
+
+
+<div class="col-lg-6 col-12 mb-4 pb-2">
+        <div class="card blog rounded border-0 shadow overflow-hidden">
+          <div class="row align-items-center no-gutters">
+            <div class="col-md-6 order-2 order-md-1">
+              <div class="card-body content">
+                <h5><a href="javascript:void(0)" class="card-title title text-dark">Design your apps in your own way</a>
+                </h5>
+                <p class="text-muted mb-0">Due to its widespread use as filler text for layouts, non-readability</p>
+                <div class="post-meta d-flex justify-content-between mt-3">
+                  <ul class="list-unstyled mb-0">
+                    <li class="list-inline-item mr-2 mb-0"><a href="javascript:void(0)" class="text-muted like"><i
+                          class="mdi mdi-heart-outline mr-1"></i>33</a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i
+                          class="mdi mdi-comment-outline mr-1"></i>08</a></li>
+                  </ul>
+                  <a routerLink="/page-blog-detail" class="text-muted readmore">Read More <i
+                      class="mdi mdi-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row projects-wrapper">
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2 branding"  *ngFor="let result of selectedData; let i = index">
+        <div class="card border-0 work-container work-classic">
+          <div class="card-body p-0">
+            <a href="page-work-detail"><img src="{{result.image}}" class="img-fluid rounded work-image" alt=""></a>
+            <div class="content pt-3">
+              <h5 class="mb-0"><a href="page-work-detail" class="text-dark title">{{result.name}}</a></h5>
+              <h6 class="text-muted tag mb-0">{{result.description}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end col-->

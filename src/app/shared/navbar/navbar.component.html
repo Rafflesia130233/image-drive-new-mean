@@ -1,0 +1,63 @@
+
+<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
+      <div class="dropdown button-dropdown">
+        <div ngbDropdown>
+          <a class="dropdown-toggle" ngbDropdownToggle>
+              <span class="button-bar"></span>
+              <span class="button-bar"></span>
+              <span class="button-bar"></span>
+          </a>
+         </div>
+      </div>
+        <div class="navbar-translate">
+            <a class="navbar-brand" [routerLink]="['/home']" placement="bottom" ngbTooltip="Designed by Invision. Coded by Creative Tim">
+                IMAGE DRIVE
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-2.jpg" data-color="orange">
+            <ul class="navbar-nav ml-auto">
+              <ng-container *ngIf="!auth.isAuthenticated()">
+                <li class="nav-item">
+                  <a routerLink="/auth/login" class="nav-link" routerLinkActive="active">
+                  Login
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/auth/register" class="nav-link">
+                  Register
+                  </a>
+                </li>
+               </ng-container>
+               <ng-container *ngIf="auth.isAuthenticated()">
+                <li class="nav-item dropdown" ngbDropdown>
+                  <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                    {{ auth.getUsername() }}
+                  </a>
+                  <div ngbDropdownMenu>
+                    <a class="dropdown-header">Dropdown header</a>
+                    <a class="dropdown-item" href="#">Your Profile</a>
+                    <a class="dropdown-item" href="#">Your Orders</a>
+                    <a class="dropdown-item" href="/list-product">Your Products</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/create-product">Upload/Create Product</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/create-artist">Introduce New Artist</a>
+                  </div>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link pointer" (click)="logout()">
+                  Logout
+                  </a>
+                </li>
+
+               </ng-container>
+            </ul>
+        </div>
+    </div>
+</nav>

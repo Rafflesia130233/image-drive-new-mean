@@ -1,0 +1,56 @@
+
+
+
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!--
+    <div class="container artist-table">
+
+
+      <div class="alert alert-success text-center" role="alert" *ngIf="Artists.length <= 0">
+          No Artists added yet!
+      </div>
+
+      <ul class="list-unstyled">
+          <li class="media" *ngFor="let artist of Artists; let i = index">
+              <img [src]="artist.avatar" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px; [alt]="artist.name" [alt]="artist.address">
+              <div class="media-body">
+                  <h5 class="mt-0 mb-1">{{artist.name}}</h5>
+                  {{artist._id}}
+              </div>
+          </li>
+      </ul>
+    </div>  -->
+
+    <div class="container">
+      <div class="row">
+          <div class="col-md-4 col-lg-3 my-3 d-flex align-items-stretch" *ngFor="let artist of Artists">
+              <div class="card border-info mb-3" style="width: 18rem;">
+                <img class="card-img-top" [src]="artist.avatar" alt="Card image cap" style="height: 10rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Artist ID</h5>
+                  <p class="card-text">{{artist._id}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Name: {{artist.name}}</li>
+                  <li class="list-group-item">Address: {{artist.address}}</li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </section>
+</main>

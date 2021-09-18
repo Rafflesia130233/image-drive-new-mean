@@ -1,0 +1,114 @@
+  <!-- Section 1 Start -->
+  <div *ngIf="notify" class="alert alert-success container marge">
+    {{ notify }}
+</div>
+<div class="wrapper">
+  <div class="page-header page-header-small">
+      <div class="page-header-image rellax-header" data-rellax-speed="-8" style="background-image: url('assets/img/bg6.jpg');">
+      </div>
+      <div class="container">
+          <div class="content-center">
+            <h1 class="heading mb-3">Buy & Sell Piantings <br> With <span class="text-primary">: Image Drive</span>
+            </h1>
+            <p class="para-desc text-muted">Image Drive helps you follow your passion. Search image for purchase or Upload image for sell.</p>
+              <div class="subcribe-form mt-4 pt-2">
+                <form class="m-0">
+                  <div class="form-group">
+                    <input type="text" id="course" name="name" class="rounded" placeholder="Search your course">
+                    <button type="submit" class="btn btn-primary">Search
+                      <i name="search" class="fea icon-sm"></i>
+                    </button>
+                  </div>
+                </form>
+                <!--end form-->
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Section 1 End -->
+ <!-- Start -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <ul class="col container-filter list-unstyled categories-filter text-center mb-0" id="filter">
+        <li class="list-inline-item"><a class="categories border d-block text-dark rounded active"
+            (click)="onSelect('all')" [ngClass]="{'active': selectedData ==='all'}">All</a></li>
+        <li class="list-inline-item"><a class="categories border d-block text-dark rounded"
+            (click)="onSelect('Drawing')" [ngClass]="{'active': selectedData ==='Drawing'}">Drawing</a></li>
+        <li class="list-inline-item"><a class="categories border d-block text-dark rounded"
+            (click)="onSelect('Engraving')" [ngClass]="{'active': selectedData ==='Engraving'}">Engraving</a>
+        </li>
+        <li class="list-inline-item"><a class="categories border d-block text-dark rounded"
+            (click)="onSelect('Iconography')" [ngClass]="{'active': selectedData
+            ==='Iconography'}">Iconography</a></li>
+        <li class="list-inline-item"><a class="categories border d-block text-dark rounded"
+            (click)="onSelect('Painting')" [ngClass]="{'active': selectedData
+            ==='Painting'}">Painting</a></li>
+        <li class="list-inline-item"><a class="categories border d-block text-dark rounded"
+            (click)="onSelect('Sculpture')" [ngClass]="{'active': selectedData
+            ==='Sculpture'}">Sculpture</a></li>
+      </ul>
+    </div>
+    <!--end row-->
+
+    <div class="row projects-wrapper">
+      <div class="col-lg-6 col-12 mb-4 pb-2" *ngFor="let result of selectedData; let i = index">
+        <div class="card blog rounded border-0 shadow overflow-hidden">
+          <div class="row align-items-center no-gutters">
+            <div class="col-md-6">
+              <img src="{{result.image}}" class="img-fluid" alt="">
+              <div class="overlay bg-dark"></div>
+              <div class="author">
+                <small class="text-light user d-block"><i class="mdi mdi-account"></i> {{result.name}}</small>
+                <small class="text-light date"><i class="mdi mdi-calendar-check"></i> 13th August, 2019</small>
+              </div>
+            </div>
+            <!--end col-->
+
+            <div class="col-md-6">
+              <div class="card-body content">
+                <h5><a href="javascript:void(0)" class="card-title title text-dark">Name: {{result.name}}</a>
+                </h5>
+                <p class="text-muted mb-0">Description: {{result.description}}</p>
+                <p class="text-muted mb-0">Category: {{result.category}}</p>
+                <div class="post-meta d-flex justify-content-between mt-3">
+                  <ul class="list-unstyled mb-0">
+                    <li class="list-inline-item mr-2 mb-0"><a href="javascript:void(0)" class="like"><i
+                          class="mdi mdi-heart-outline mr-1"></i>Price</a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="comments"><i
+                          class="mdi mdi-comment-outline mr-1"></i>{{result.price}}</a></li>
+                  </ul>
+                  <a href="page-blog-detail" class="text-muted readmore">Read More <i
+                      class="mdi mdi-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <!--end col-->
+          </div>
+          <!--end row-->
+        </div>
+        <!--end blog post-->
+      </div>
+      <!--end col-->
+
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+  <!-- PAGINATION START -->
+  <div class="col-12">
+    <ul class="pagination justify-content-center mb-0">
+      <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Previous">Prev</a></li>
+      <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+      <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+      <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+      <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Next">Next</a></li>
+    </ul>
+  </div>
+  <!--end col-->
+  <!-- PAGINATION END -->
+</section>
+<!--end section-->
+<!-- End -->
+<!------------------hh-->
+</div>

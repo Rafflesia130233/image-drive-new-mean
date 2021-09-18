@@ -1,0 +1,88 @@
+<div class="page-header" filter-color="orange">
+  <div class="page-header-image" style="background-image:url(assets/img/log.jpg)"></div>
+    <div class="container">
+        <div class="col-md-4 content-center">
+          <div class="card card-login card-plain">
+        <h1 class="page-title">Login</h1>
+        <form [formGroup]="loginForm" (ngSubmit) = "login()">
+          <div class="form-group">
+            <div *ngIf="notify" class="alert alert-success">
+              {{ notify }}
+            </div>
+            <div *ngIf="errors.length > 0" class="alert alert-danger">
+              <p *ngFor = "let error of errors">
+                  {{ error }}
+              </p>
+            </div>
+            <label for="email">Email</label>
+            <input type="email"
+                   class="form-control"
+                   formControlName="email">
+          </div>
+          <div *ngIf="isValidInput('email')"
+            class="alert alert-danger">
+            <div *ngIf="loginForm.controls['email']?.errors?.required">
+              Email is required.
+            </div>
+            <div *ngIf="loginForm.controls['email']?.errors?.pattern">
+              Must be a valid email format.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+                   class="form-control"
+                   formControlName ="password">
+          </div>
+          <div *ngIf="isValidInput('password')"
+            class="alert alert-danger">
+            <div *ngIf="loginForm.controls['password']?.errors?.required">
+              Password is required.
+            </div>
+          </div>
+          <button
+          [disabled]="!loginForm.valid"
+          type="submit"
+          class="btn btn-warning"
+          >Sign In</button>
+        </form>
+      </div>
+    </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <nav>
+          <ul>
+              <li>
+                  <a href="https://www.creative-tim.com">
+                      Rafflesia Khan
+                  </a>
+              </li>
+              <li>
+                  <a href="https://www.creative-tim.com/about-us">
+                      About Us
+                  </a>
+              </li>
+              <li>
+                  <a href="http://blog.creative-tim.com">
+                      Blog
+                  </a>
+              </li>
+              <li>
+                  <a href="https://www.creative-tim.com">
+                      Style Sheets from Creative Tim
+                  </a>
+              </li>
+          </ul>
+      </nav>
+      <div class="copyright">
+          &copy;
+        {{data | date: 'yyyy'}}, Welcome to
+          <a href="https://www.invisionapp.com" target="_blank">Image Drive</a>
+      </div>
+  </div>
+</footer>
+

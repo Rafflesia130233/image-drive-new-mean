@@ -11,10 +11,10 @@ import { Product } from '../model/product';
 
 export class FileUploadService {
 
-  baseURL = "http://shop-service-fpmxe.ondigitalocean.app/";
-  artistUri="http://shop-service-fpmxe.ondigitalocean.app/file-upload"
-  ProductUri="http://shop-service-fpmxe.ondigitalocean.app/products"
-  orderUri="http://shop-service-fpmxe.ondigitalocean.app/orders"
+  baseURL = "https://shop-service-fpmxe.ondigitalocean.app/";
+  artistUri="https://shop-service-fpmxe.ondigitalocean.app/file-upload"
+  ProductUri="https://shop-service-fpmxe.ondigitalocean.app/products"
+  orderUri="https://shop-service-fpmxe.ondigitalocean.app/orders"
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
  // ProductsAll: any = [];

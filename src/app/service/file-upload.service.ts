@@ -11,10 +11,10 @@ import { Product } from '../model/product';
 
 export class FileUploadService {
 
-  baseURL = "http://localhost:4000/";
-  artistUri="http://localhost:4000/file-upload"
-  ProductUri="http://localhost:4000/products"
-  orderUri="http://localhost:4000/orders"
+  baseURL = "http://shop-service-fpmxe.ondigitalocean.app/";
+  artistUri="http://shop-service-fpmxe.ondigitalocean.app/file-upload"
+  ProductUri="http://shop-service-fpmxe.ondigitalocean.app/products"
+  orderUri="http://shop-service-fpmxe.ondigitalocean.app/orders"
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
  // ProductsAll: any = [];

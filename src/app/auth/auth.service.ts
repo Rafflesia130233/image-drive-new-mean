@@ -17,7 +17,7 @@ class DecodedToken {
 })
 export class AuthService {
 
-  private uriseg = 'https://shop-service-fpmxe.ondigitalocean.app/users';
+  private uriseg = 'https://shop-service-xu3up.ondigitalocean.app/users';
   private decodedToken;
 
   constructor(private http: HttpClient) {

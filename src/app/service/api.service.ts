@@ -8,9 +8,9 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 })
 
 export class ApiService {
-
-  baseUri:string = 'https://shop-service-fpmxe.ondigitalocean.app/api';
-  productUri:string = 'https://shop-service-fpmxe.ondigitalocean.app/api/product';
+  //https://shop-service-xu3up.ondigitalocean.app/
+  baseUri:string = 'https://shop-service-xu3up.ondigitalocean.app/api';
+  productUri:string = 'https://shop-service-xu3up.ondigitalocean.app/api/product';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
